@@ -13,7 +13,13 @@ def add_task(tasks):
     tasks.append(task)
     print(f"Task'{Title}' added")
 
+<<<<<<< HEAD
 #check
    
 add_task(tasks)
 print(tasks)
+=======
+'''check '''   
+add_task(tasks)
+print(tasks)
+>>>>>>> e5af2ae7fbc562b215825d0bc5100fedc9640c8c
