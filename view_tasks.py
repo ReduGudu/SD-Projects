@@ -1,7 +1,6 @@
-#First check if there are tasks
 from task_details import tasks
 
-def view(tasks):
+def view():
     if not tasks:                                       
         print("No tasks today")
         return
