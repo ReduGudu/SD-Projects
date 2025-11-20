@@ -9,9 +9,12 @@ def view(tasks):
         title=task["Title"]
         due= task.get("Due", "N/A")
         priority= task.get("Priority", "Low")
+        status ="Completed" if task.get("Completed") else "Not Completed"
 
-        print(f"{i}.{title} |Due: {due} | Priority: {priority}" )
-
+        print(f"{i}.{title} |Due: {due} | Priority: {priority} | Status: {status}" )
+    
+    print("----------------")
+    
 #check
 view(tasks)
 
