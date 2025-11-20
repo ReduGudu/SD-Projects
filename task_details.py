@@ -22,6 +22,7 @@ def add_task(tasks):
                 "Title" : Title,
                 "Due" : Date if Date else "N/A",
                 "Priority" : Priority,
+                "Completed" : False
             }
 
         tasks.append(task)
