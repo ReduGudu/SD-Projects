@@ -17,10 +17,12 @@ def add_task(tasks):
             
         Date=input("Enter due date(dd/mm/yyyy)")
         Priority=input("Enter priority level (Critical/High/Medium/Low)")
-
+        Time=input("Enter due time(hh:mm):")
+        
         task = {
                 "Title" : Title,
-                "Due" : Date if Date else "N/A",
+                "Due_date" : Date if Date else "N/A",
+                "Due_time" : Time if Time else "N/A",
                 "Priority" : Priority,
                 "Completed" : False
             }
