@@ -1,0 +1,132 @@
+/* General style */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+h1 {
+    color: #444;
+}
+
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/*Table*/
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+th {
+    background-color: #eee;
+}
+
+
+
+/*Buttons*/
+
+.btn {
+    padding: 6px 12px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* Add Task button */
+.btn.add-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn.add-btn:hover {
+    background-color: #45a049;
+}
+
+/* Edit button */
+.btn.edit-btn {
+    background-color: #2196F3;
+    color: white;
+}
+
+.btn.edit-btn:hover {
+    background-color: #0b7dda;
+}
+
+/* Delete button */
+.btn.delete-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn.delete-btn:hover {
+    background-color: #da190b;
+}
+
+/* Mark Completed button */
+.btn.mark-btn {
+    background-color: #ff9800;
+    color: white;
+}
+
+.btn.mark-btn:hover {
+    background-color: #e68a00;
+}
+
+/* Back / Other  */
+.btn.back-btn {
+    background-color: #777;
+    color: white;
+}
+
+.btn.back-btn:hover {
+    background-color: #555;
+}
+
+/*Form style*/
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+select {
+    padding: 6px;
+    width: 250px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
