@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do List</title>
+</head>
+<body>
+
+    <h1>To-Do List</h1>
+
+    <a href="{{ url_for('add_route') }}">Add Task</a>
+
+    <br><br>
+
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+          {% for category, message in messages %}
+            <li style="color: {{ 'red' if category=='error' else 'green' }};">
+                {{ message }}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    {% if tasks %}
+        <table border="1" cellpadding="8" cellspacing="0">
+            <tr>
+                <th>task number</th>
+                <th>Title</th>
+                <th>Due Date</th>
+                <th>Due Time</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+
+            {% for task in tasks %}
+            {% set row_color =
+                'green' if task.Completed else
+                'red' if task.Priority == 'Critical' else
+                'orange' if task.Priority == 'High' else
+                'gold' if task.Priority == 'Medium' else
+                'blue'
+            %}
+            <tr style="color: {{ row_color }};">
+                <td>{{ loop.index }}</td>
+                <td>{{ task.Title }}</td>
+                <td>{{ task.Due_date }}</td>
+                <td>{{ task.Due_time }}</td>
+                <td>{{ task.Priority }}</td>
+                <td>{{ 'Completed' if task.Completed else 'Not Completed' }}</td>
+
+                <td>
+                    <a href="{{ url_for('edit_route', task_id=task.index) }}">Edit</a> |
+                    <a href="{{ url_for('delete_route', task_id=task.index) }}">Delete</a>
+                    {% if not task.Completed %}
+                        | <a href="{{ url_for('mark_route', task_id=task.index) }}">Mark Completed</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    {% else %}
+        <p>No tasks yet. <a href="{{ url_for('add_route') }}">Add one now!</a></p>
+    {% endif %}
+
+</body>
+</html>
