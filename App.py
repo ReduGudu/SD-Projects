@@ -61,7 +61,7 @@ def edit_route(task_id):
         flash("Task updated!", "success")
         return redirect(url_for("main_menu"))
 
-    return render_template("edit_task.html", task=task, task_id=task_id)
+    return render_template("edit.html", task=task, task_id=task_id)
 
 
 @app.route("/delete/<int:task_id>")

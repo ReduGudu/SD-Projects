@@ -2,34 +2,44 @@
 <html>
 <head>
     <title>Edit Task</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-<h1>Edit Task</h1>
+    <h1>Edit Task</h1>
 
-<form method="POST">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+          {% for category, message in messages %}
+            <li style="color: {{ 'red' if category=='error' else 'green' }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
 
-    <label>Title:</label><br>
-    <input type="text" name="title" value="{{ task.Title }}" required><br><br>
+    <form method="POST">
 
-    <label>Due Date:</label><br>
-    <input type="date" name="due_date" value="{{ task.Due_date }}" required><br><br>
+        <label>Title:</label><br>
+        <input type="text" name="title" value="{{ task['Title'] }}" required><br><br>
 
-    <label>Due Time:</label><br>
-    <input type="time" name="due_time" value="{{ task.Due_time }}" required><br><br>
+        <label>Due Date:</label><br>
+        <input type="date" name="due_date" value="{{ task['Due_date'] }}" required><br><br>
 
-    <label>Priority:</label><br>
-    <select name="priority" required>
-        <option value="Critical" {% if task.Priority == "Critical" %}selected{% endif %}>Critical</option>
-        <option value="High" {% if task.Priority == "High" %}selected{% endif %}>High</option>
-        <option value="Medium" {% if task.Priority == "Medium" %}selected{% endif %}>Medium</option>
-        <option value="Low" {% if task.Priority == "Low" %}selected{% endif %}>Low</option>
-    </select><br><br>
+        <label>Due Time:</label><br>
+        <input type="time" name="due_time" value="{{ task['Due_time'] }}" required><br><br>
 
-    <button type="submit">Update Task</button>
-</form>
+        <label>Priority:</label><br>
+        <select name="priority" required>
+            <option value="Critical" {% if task['Priority'] == "Critical" %}selected{% endif %}>Critical</option>
+            <option value="High" {% if task['Priority'] == "High" %}selected{% endif %}>High</option>
+            <option value="Medium" {% if task['Priority'] == "Medium" %}selected{% endif %}>Medium</option>
+            <option value="Low" {% if task['Priority'] == "Low" %}selected{% endif %}>Low</option>
+        </select><br><br>
 
-<br>
-<a href="{{ url_for('main_menu') }}">Back</a>
+        <button type="submit">Update Task</button>
+    </form>
 
+    <br>
+    <a href="{{ url_for('main_menu') }}">Back to Task List</a>
 </body>
 </html>
